@@ -38,8 +38,8 @@ PYM
 """
 
 PYM = {
-    'pym_url': 'https://pym.nprapps.org/pym.v1.min.js',
-    'pym_loader_url': 'https://pym.nprapps.org/pym-loader.v1.min.js',
+    'pym_url': '//mattstiles.org/pym.v1.min.js',
+    'pym_loader_url': '//mattstiles.org/pym-loader.v1.min.js',
 }
 
 """
@@ -65,18 +65,18 @@ authomatic = Authomatic(authomatic_config, os.environ.get('AUTHOMATIC_SALT'))
 DEPLOYMENT
 """
 PRODUCTION_S3_BUCKET = {
-    'bucket_name': 'apps.npr.org',
-    'region': 'us-east-1'
+    'bucket_name': 'mattstiles.org',
+    'region': 'us-west-2'
 }
 
 STAGING_S3_BUCKET = {
-    'bucket_name': 'stage-apps.npr.org',
-    'region': 'us-east-1'
+    'bucket_name': 'mattstiles.org',
+    'region': 'us-west-2'
 }
 
 ASSETS_S3_BUCKET = {
-    'bucket_name': 'assets.apps.npr.org',
-    'region': 'us-east-1'
+    'bucket_name': 'mattstiles.org',
+    'region': 'us-west-2'
 }
 
 DEFAULT_MAX_AGE = 20

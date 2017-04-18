@@ -169,10 +169,6 @@
         <div class="segment">
             <a id="resize-mobile" class="btn" href="#">Mobile (300px)</a>
         </div>
-
-        <div class="segment">
-            <a id="resize-desktop" class="btn" href="#">Desktop (730px)</a>
-        </div>
         
         <div class="segment">
             <a id="resize-blog" class="btn" href="#">Blog (840px)</a>
@@ -260,15 +256,6 @@
             pymParent.sendWidth();
 
             window.location.hash = 'mobile';
-        });
-
-        resizeDesktopEl.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            previewWrapperEl.style.width = '730px';
-            pymParent.sendWidth();
-
-            window.location.hash = 'desktop';
         });
 
         resizeFluidEl.addEventListener('click', function(e) {
