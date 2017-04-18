@@ -21,7 +21,7 @@ ASSETS_SLUG = PROJECT_SLUG
 
 # The name of the repository containing the source
 REPOSITORY_NAME = 'dailygraphics'
-REPOSITORY_URL = 'git@github.com:nprapps/%s.git' % REPOSITORY_NAME
+REPOSITORY_URL = 'git@github.com:mattstiles/%s.git' % REPOSITORY_NAME
 REPOSITORY_ALT_URL = None # 'git@bitbucket.org:nprapps/%s.git' % REPOSITORY_NAME'
 
 # Path to the folder containing the graphics
@@ -41,13 +41,6 @@ PYM = {
     'pym_url': 'https://pym.nprapps.org/pym.v1.min.js',
     'pym_loader_url': 'https://pym.nprapps.org/pym-loader.v1.min.js',
 }
-
-"""
-CAREBOT
-"""
-
-CAREBOT_ENABLED = True
-CAREBOT_URL = 'https://carebot.nprapps.org/carebot-tracker.v0.min.js'
 
 """
 OAUTH
