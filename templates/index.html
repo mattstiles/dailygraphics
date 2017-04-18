@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Graphic Embed : NPR</title>
+    <title>Graphic Embed : The Daily Viz</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="shortcut icon" href="https://media.npr.org/favicon.ico" />
+    
+    
     <style type="text/css">
         body {
-            font: 14px/1.4 Helvetica, Arial, sans-serif;
+            font: 14px; 
+            font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             color: #333;
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 30px;
+            font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             margin: 0;
         }
         h2 {
             font-size: 14px;
+            font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             margin: 0 0 11px 0;
         }
 
@@ -69,9 +73,9 @@
 <body>
 
 <!-- index -->
-<h1>There are <strong>{{ graphics_count }}</strong> graphics:</h1>
+<h1>You have {{ graphics_count }} graphics:</h1>
 
-<ol class="graphics-list">{% for graphic in graphics %}
+<ol class="graphics-list">{% for graphic in graphics|sort(reverse=false, attribute=none) %}
     <li><a href="/graphics/{{ graphic }}/?refresh=1">{{ graphic }}</a></li>
 {% endfor %}</ol>
 
