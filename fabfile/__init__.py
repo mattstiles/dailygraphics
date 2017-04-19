@@ -220,7 +220,7 @@ def _check_slug(slug):
         key = bucket.get_key('%s/graphics/%s/child.html' % (app_config.PROJECT_SLUG, slug))
 
         if key:
-            print 'Error: Slug exists on apps.npr.org'
+            print 'Error: Slug already exists'
             return True
     except boto.exception.NoAuthHandlerFound:
         print 'Could not authenticate, skipping Amazon S3 check'
