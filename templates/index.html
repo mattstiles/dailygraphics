@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     
-    
     <style type="text/css">
         body {
-            font: 14px; 
+            font: 16px; 
             font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             color: #333;
         }
 
         h1 {
-            font-size: 30px;
+            font-size: 50px;
             font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             margin: 0;
+            color: #666;
         }
         h2 {
             font-size: 14px;
@@ -45,7 +45,8 @@
         .graphics-list li,
         .templates-list li {
             margin-top: 0;
-            margin-bottom: 6px;
+            margin-bottom: 9px;
+            font-size: 18px;
         }
 
         .parent-header { margin-bottom: 11px; }
@@ -73,13 +74,13 @@
 <body>
 
 <!-- index -->
-<h1>You have {{ graphics_count }} graphics:</h1>
+<h1>GRAPHICS: {{ graphics_count }}</h1>
 
 <ol class="graphics-list">{% for graphic in graphics|sort(reverse=false, attribute=none) %}
     <li><a href="/graphics/{{ graphic }}/?refresh=1">{{ graphic }}</a></li>
 {% endfor %}</ol>
 
-<h1>There are <strong>{{ templates_count }}</strong> templates:</h1>
+<h1>TEMPLATES: <strong>{{ templates_count }}</strong></h1>
 
 <ol class="templates-list">{% for template in templates %}
     <li><a href="/templates/{{ template }}/?refresh=1">{{ template }}</a></li>
