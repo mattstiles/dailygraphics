@@ -23,6 +23,7 @@ dailygraphics
 * [Adding A New Graphic Template](#adding-a-new-graphic-template)
 * [Working With Carebot](#working-with-carebot)
 * [Keeping The Graphics Directory Clean](#keeping-the-graphics-directory-clean)
+* [Generating Copyedit Notes](#generating-copyedit-notes)
 
 What is this?
 -------------
@@ -104,7 +105,7 @@ Then set up the project like this:
 ```
 git clone https://github.com/nprapps/dailygraphics.git
 cd dailygraphics
-mkvirtualenv --no-site-packages dailygraphics
+mkvirtualenv dailygraphics
 pip install -r requirements.txt
 npm install
 ```
@@ -164,7 +165,7 @@ Following the steps in [this blog post](http://blog.apps.npr.org/2015/03/02/app-
 
 You should only need to do this once.
 
-**NPR users:** The environment variables you need have already been generated, so you can skip the first step. Contact Alyson, David or Chris for more information.
+**NPR users:** The environment variables you need have already been generated, so you can skip the first step. Contact Alyson or Juan for more information.
 
 
 Run The Project
@@ -215,6 +216,7 @@ Build out your graphic in ```child_template.html```, and put your javascript in 
 | ![Bar chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/bar-chart.png) | Bar chart | ```fab add_bar_chart:$SLUG``` |
 | ![Grouped bar chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/grouped-bar-chart.png) | Grouped bar chart | ```fab add_grouped_bar_chart:$SLUG``` |
 | ![Stacked bar chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/stacked-bar-chart.png) | Stacked bar chart | ```fab add_stacked_bar_chart:$SLUG``` |
+| ![Diverging bar chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/diverging-bar-chart.png) | Diverging bar chart | ```fab add_diverging_bar_chart:$SLUG``` |
 | ![Column chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/column-chart.png) | Column chart | ```fab add_column_chart:$SLUG``` |
 | ![Stacked column chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/stacked-column-chart.png) | Stacked column chart | ```fab add_stacked_column_chart:$SLUG``` |
 | ![Stacked grouped column chart](https://raw.githubusercontent.com/nprapps/dailygraphics/master/graphic_templates/_thumbs/stacked-grouped-column-chart.png) | Stacked grouped column chart | ```fab add_stacked_grouped_column_chart:$SLUG``` |
@@ -236,9 +238,9 @@ Here are some examples:
 * Good: my-project-name<br>Bad: my project name
 * Good: my-wonderful-project<br>Bad: my wonderful project!
 
-**NPR users:** For clarity and to help prevent overwriting existing projects, append the current date or known pubdate to your slug name, YYYYMMDD-style. For example: ```my-project-name-20150415```
+Dailygraphics by default will append the current date to your slug name, YYYMMDD-style -- for example: ```my-project-name-20170415```. This is for clarity and to help prevent ovewriting existing projects. You can also manually specify a date. If the date you specify is not a valid date, dailygraphics will use the current date instead.
 
-When you create a new project, dailygraphics will check against your local projects and the projects published to production to make sure that the ```$SLUG``` you've chosen does not already exist.
+When you create a new project, dailygraphics will check against your local projects and the projects published to production to make sure that the ```$SLUG``` (plus date) you've chosen does not already exist.
 
 Clone An Old Graphic
 -----------------
@@ -542,7 +544,7 @@ In your terminal, in the ```dailygraphics``` virtualenv, navigate to your projec
 mapturner geodata.yaml data/geodata.json
 ```
 
-In your project ```js/graphic.js``` folder, change the ```PRIMARY_COUNTRY``` variable at the top from Nepal to the name of your featured country. You will also want to adjust the ```MAP_DEFAULT_SCALE``` and ```MAP_DEFAULT_HEIGHT``` variables so that your featured country fits onscreen.
+In your project's ```js/graphic.js```, change the ```primaryCountry``` variable in the `renderLocatorMap` config options from Nepal to the name of your featured country. To fine-tune the positioning of your map, adjust the `defaultScale` and aspect ratio variables, or specify an offset position in pixels by passing a `pixelOffset` config option as `[ X_OFFSET, Y_OFFSET]`.
 
 Creating Animated Photos
 ------------------------
@@ -703,8 +705,41 @@ If you are working with multiple users who are creating/deleting graphics, you m
 git clean -dn
 ```
 
-This will list folders with no committed files. To permenantly delete those folders, run:
+This will list folders with no committed files. To permanently delete those folders, run:
 
 ```
 git clean -df
 ```
+
+**NOTE:** This will delete any files that have not been committed, so
+if you have any work in progress that you do not want deleted, you will
+need to commit those files before running `git clean -df`.
+
+Generating Copyedit Notes
+--------------------
+
+**This section is relevant to NPR users of the dailygraphics rig.**
+
+The NPR Visuals team recently established a workflow for sending graphics to the NPR copyediting desk, in order to make sure that the information in each graphic is as accurate as possible. This process involves e-mailing a specific set of information to the copyedit desk (this is further expanded on in internal documentation). To help automate compiling and formatting this e-mail, run:
+
+```
+fab copyedit:$SLUG
+```
+
+This will generate an e-mail template with information specific to the graphic that the slug refers to. You can also generate a copyedit note that includes information for multiple graphics:
+
+```
+fab copyedit:$SLUG1,$SLUG2
+```
+
+Alternatively, you can run:
+
+```
+fab copyedit:$SLUG | pbcopy
+```
+
+This will automatically copy the e-mail to your clipboard, which you can then paste into an e-mail service.
+
+#### Editing the Copyedit E-mail Templates
+
+The basic templates for these e-mails are generated from the Jinja templates in `templates/copyedit/`. If you want to further modify these e-mail templates, you should just need to edit the files located there.
