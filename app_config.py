@@ -38,13 +38,8 @@ PYM
 """
 
 PYM = {
-<<<<<<< HEAD
-    'pym_url': '//mattstiles.org/pym.v1.min.js',
-    'pym_loader_url': '//mattstiles.org/pym-loader.v1.min.js',
-=======
-    'pym_url': 'https://pym.nprapps.org/pym.v1.min.js',
-    'pym_loader_url': 'https://pym.nprapps.org/npr-pym-loader.v2.min.js',
->>>>>>> upstream/master
+'pym_url': '//mattstiles.org/pym.v1.min.js',
+    'pym_loader_url': '//mattstiles.org/npr-pym-loader.v2.min.js',
 }
 
 """
