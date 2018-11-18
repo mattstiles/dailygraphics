@@ -38,7 +38,7 @@ PYM
 """
 
 PYM = {
-'pym_url': '//mattstiles.org/pym.v1.min.js',
+    'pym_url': '//mattstiles.org/pym.v1.min.js',
     'pym_loader_url': '//mattstiles.org/npr-pym-loader.v2.min.js',
 }
 
