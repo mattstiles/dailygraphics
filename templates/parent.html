@@ -56,14 +56,11 @@
             font-size: 17px;
             font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             line-height: 28px;
-<<<<<<< HEAD
             margin: 0;
             float: left;
             padding: 0px 11px 0px 11px;
-=======
             margin: 30px 0;
             padding: 9px 11px;
->>>>>>> upstream/master
             border-radius: 4px;
             background-color: #f7f7f7;
             font-weight: bold;
@@ -160,7 +157,6 @@
             font-size: 15px;
             font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
             display: block;
-<<<<<<< HEAD
             padding: 10px;
             margin-bottom: 20px;
             border: 1px dashed #ccc;
@@ -170,7 +166,6 @@
             text-transform: uppercase;
             font-family: "Source Sans Pro", sans-serif;
             font-weight: 900;
-=======
             margin-bottom: 5px;
             width: 100%;
             max-width: 500px;
@@ -221,14 +216,13 @@
         }
         .direct-link blockquote p {
             font-size: 14px;
->>>>>>> upstream/master
         }
     </style>
 </head>
 <body>
 
     <header class="parent-header">
-<<<<<<< HEAD
+
         <div class="segment">
             <a href="/"><h1 class="dvlogo">The Daily Viz</h1></a>
         </div>
@@ -240,105 +234,6 @@
         <div class="segment">
             <a id="resize-blog" class="btn" href="#">Blog (840px)</a>
         </div>
-=======
-
-        <div class="type-segment segment-group">
-          <div class="segment">
-              <h1 class="{{ DEPLOYMENT_TARGET or 'localhost' }}">{{ DEPLOYMENT_TARGET or 'localhost' }}</h1>
-          </div>
-        </div>
-
-        <div class="button-segment">
-
-          <div class="resize-segment segment-group">
-            <div class="segment">
-                <a id="resize-sidebar" class="btn" href="#">Sidebar (180px)</a>
-            </div>
->>>>>>> upstream/master
-
-            <div class="segment">
-                <a id="resize-mobile" class="btn" href="#">Mobile (300px)</a>
-            </div>
-
-            <div class="segment">
-                <a id="resize-desktop" class="btn" href="#">Desktop (730px)</a>
-            </div>
-
-            <div class="segment">
-                <a id="resize-fluid" class="btn" href="#">Fluid (100%)</a>
-            </div>
-          </div>
-
-          <div class="link-segment segment-group">
-
-              {% if DEPLOYMENT_TARGET != "production" %}
-                  {% if DEPLOYMENT_TARGET != None %}
-                  <div class="segment">
-                      <a class="btn localhost" href="http://localhost:8000/graphics/{{ slug }}/">localhost &raquo;</a>
-                  </div>
-                  {% endif %}
-
-                  {% if DEPLOYMENT_TARGET != 'staging' %}
-                  <div class="segment">
-                      <a class="btn staging" href="https://s3.amazonaws.com/{{ STAGING_S3_BUCKET['bucket_name'] }}/{{ PROJECT_SLUG }}/graphics/{{ slug }}/index.html" target="_blank">staging &raquo;</a>
-                  </div>
-                  {% endif %}
-
-                  {% if DEPLOYMENT_TARGET != 'production' %}
-                  <div class="segment">
-                      <a class="btn production" href="https://{{ PRODUCTION_S3_BUCKET['bucket_name'] }}/{{ PROJECT_SLUG }}/graphics/{{ slug }}/" target="_blank">production &raquo;</a>
-                  </div>
-                  {% endif %}
-
-                  {% if COPY_GOOGLE_DOC_KEY %}
-                  {% if COPY_GOOGLE_DOC_KEY != 'None' %}
-                  <div class="segment">
-                      <a class="btn" href="https://docs.google.com/spreadsheets/d/{{ COPY_GOOGLE_DOC_KEY }}/edit" target="_blank">spreadsheet &raquo;</a>
-                  </div>
-                  {% endif %}
-                  {% endif %}
-              {% endif %}
-          </div>
-
-<<<<<<< HEAD
-        <div class="right">
-                
-                
-                <div class="segment">
-                    <a class="btn s3" href="https://console.aws.amazon.com/s3/home?region=us-west-2#&bucket=mattstiles.org&prefix=dailygraphics/graphics/{{ slug }}/">S3 Bucket &raquo;</a>
-                </div>
-                
-            
-            {% if DEPLOYMENT_TARGET != "production" %}
-                {% if DEPLOYMENT_TARGET != None %}
-                <div class="segment">
-                    <a class="btn localhost" href="http://localhost:8000/graphics/{{ slug }}/index.html">localhost &raquo;</a>
-                </div>
-                {% endif %}
-
-                <!--{% if DEPLOYMENT_TARGET != 'staging' %}
-                <div class="segment">
-                    <a class="btn staging" href="http://mattstiles.org/dailygraphics/graphics/{{ slug }}/" target="_blank">staging &raquo;</a>
-                </div>
-                {% endif %}-->
-
-                {% if DEPLOYMENT_TARGET != 'production' %}
-                <div class="segment">
-                    <a class="btn production" href="http://mattstiles.org/dailygraphics/graphics/{{ slug }}/index.html" target="_blank">Production &raquo;</a>
-                </div>
-                {% endif %}
-
-                {% if COPY_GOOGLE_DOC_KEY %}
-                {% if COPY_GOOGLE_DOC_KEY != 'None' %}
-                <div class="segment">
-                    <a class="btn" href="https://docs.google.com/spreadsheets/d/{{ COPY_GOOGLE_DOC_KEY }}/edit" target="_blank">Data &raquo;</a>
-                </div>
-                {% endif %}
-                {% endif %}
-            {% endif %}
-=======
->>>>>>> upstream/master
-        </div>
 
     </header>
 
@@ -347,7 +242,6 @@
         <div id="preview-wrapper">
             <p data-pym-loader data-child-src="child.html" id="preview">Loading...</p>
         </div>
-<<<<<<< HEAD
         
         <h2><span class="production">Production embed for The Daily Viz:</span> </h2>
         
@@ -358,7 +252,7 @@
     </div>
 
     <script type="text/javascript" src="{{ PYM['pym_url'] }}"></script>
-=======
+
         <h2><span class="production">Production</span> embed code (for Seamus and NPR stations)</h2>
 {% if CUSTOM_LOCATION %}
         <h2><span class="production">This has been redeployed from a custom location. Check thoroughly before using in a new graphic.</span></h2>
@@ -380,22 +274,18 @@
                 <p><em><strong><a href="https://{{ PRODUCTION_S3_BUCKET['bucket_name'] }}/{{ PROJECT_SLUG }}/graphics/{{ slug }}/child.html?mode=childlink&utm_source=nprnews&utm_medium=app&utm_campaign=storyredirect">Don't see the graphic above? Click here.</a></strong></em></p>
             </blockquote>
         </div>
->>>>>>> upstream/master
 
     </div>
     <script src="{{PYM['pym_loader_url']}}" type="text/javascript"></script>
     <script type="text/javascript">
-<<<<<<< HEAD
         var resizeblogEl = document.querySelector('#resize-blog');
-=======
         var homePageEl = document.querySelector('#homepage');
         var resizeSidebarEl = document.querySelector('#resize-sidebar');
->>>>>>> upstream/master
         var resizeMobileEl = document.querySelector('#resize-mobile');
         var resizeDesktopEl = document.querySelector('#resize-desktop');
         var resizeFluidEl = document.querySelector('#resize-fluid');
         var previewWrapperEl = document.querySelector('#preview-wrapper');
-<<<<<<< HEAD
+
 
         resizeblogEl.addEventListener('click', function(e) {
             e.preventDefault();
@@ -404,13 +294,13 @@
             pymParent.sendWidth();
 
             window.location.hash = 'blog';
-=======
+
         resizeSidebarEl.addEventListener('click', function(e) {
             e.preventDefault();
             previewWrapperEl.style.width = '180px';
             window.dispatchEvent(new Event('resize'));
             window.location.hash = 'sidebar';
->>>>>>> upstream/master
+
         });
         resizeMobileEl.addEventListener('click', function(e) {
             e.preventDefault();
@@ -418,16 +308,14 @@
             window.dispatchEvent(new Event('resize'));
             window.location.hash = 'mobile';
         });
-<<<<<<< HEAD
 
-=======
         resizeDesktopEl.addEventListener('click', function(e) {
             e.preventDefault();
             previewWrapperEl.style.width = '730px';
             window.dispatchEvent(new Event('resize'));
             window.location.hash = 'desktop';
         });
->>>>>>> upstream/master
+
         resizeFluidEl.addEventListener('click', function(e) {
             e.preventDefault();
             previewWrapperEl.style.width = '100%';
@@ -456,11 +344,9 @@
         } else if (window.location.hash == '#fluid') {
             previewWrapperEl.style.width = '100%';
         }
-<<<<<<< HEAD
 
         var pymParent = new pym.Parent('preview', 'child.html', {});
-=======
->>>>>>> upstream/master
+
     </script>
 </body>
 </html>
