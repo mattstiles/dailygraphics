@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Graphic Embed : The Daily Viz</title>
+    <title>Graphic Embed // The Daily Viz</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     
@@ -74,13 +74,13 @@
 <body>
 
 <!-- index -->
-<h1>GRAPHICS: {{ graphics_count }}</h1>
+<h1>Graphics: {{ graphics_count }}</h1>
 
 <ol class="graphics-list">{% for graphic in graphics|sort(reverse=false, attribute=none) %}
     <li><a href="/graphics/{{ graphic }}/?refresh=1">{{ graphic }}</a></li>
 {% endfor %}</ol>
 
-<h1>TEMPLATES: <strong>{{ templates_count }}</strong></h1>
+<h1>Templates: <strong>{{ templates_count }}</strong></h1>
 
 <ol class="templates-list">{% for template in templates %}
     <li><a href="/templates/{{ template }}/?refresh=1">{{ template }}</a></li>
